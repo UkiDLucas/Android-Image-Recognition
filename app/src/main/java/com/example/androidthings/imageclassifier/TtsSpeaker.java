@@ -39,8 +39,8 @@ public class TtsSpeaker {
     private static final List<Utterance> JOKES = new ArrayList<>();
     static {
         SHUTTER_SOUNDS.add(new ShutterUtterance("Click!"));
-        SHUTTER_SOUNDS.add(new ShutterUtterance("Cheeeeese!"));
-        SHUTTER_SOUNDS.add(new ShutterUtterance("Smile!"));
+        SHUTTER_SOUNDS.add(new ShutterUtterance("Say Cheeeeese!"));
+        SHUTTER_SOUNDS.add(new ShutterUtterance("Aim well!"));
 
         JOKES.add(new SimpleUtterance("It's a bird! It's a plane! It's... it's..."));
         JOKES.add(new SimpleUtterance("Oops, someone left the lens cap on! Just kidding..."));
