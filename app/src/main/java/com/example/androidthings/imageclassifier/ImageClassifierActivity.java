@@ -46,7 +46,7 @@ import java.util.Locale;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class ImageClassifierActivity extends Activity implements ImageReader.OnImageAvailableListener {
-    private static final String TAG = "ImageClassifierActivity";
+    private static final String TAG = ImageClassifierActivity.class.getSimpleName();
 
     private ImagePreprocessor mImagePreprocessor;
     private TextToSpeech mTtsEngine;
