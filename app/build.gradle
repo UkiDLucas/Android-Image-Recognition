@@ -30,19 +30,31 @@ android {
     }
 }
 
-// Download model zip file into ../../assets directory
-// unzip it to demo project's own ./assets directory
-// @see https://github.com/michel-kraemer/gradle-download-task/blob/master/README.md
+/**
+ * DOWNLOAD TENSORFLOW MODEL zip file
+ * into ../../assets directory
+ * unzip it to demo project's own ./assets directory
+ * @see https://github.com/michel-kraemer/gradle-download-task/blob/master/README.md
+ */
 import de.undercouch.gradle.tasks.download.Download
-task downloadFile(type: Download) {
+
+// alternative:
+task downloadZipFile(type: Download) {
+//task downloadFile(type: Download) {
+    def assetsDir = "/../../assets/"
     src 'https://storage.googleapis.com/download.tensorflow.org/models/inception5h.zip'
-    dest projectDir.toString() + '/../../assets/inception.zip'
+    //dest projectDir.toString() + '/../../assets/inception.zip'
+    dest new File(assetsDir, "inception.zip")
 }
-task unzip(type: Copy) {
+
+// alternative
+// task downloadAndUnzipFile(dependsOn: downloadZipFile, type: Copy) {
+task unzip(dependsOn: downloadZipFile, type: Copy) {
     from zipTree(projectDir.toString() + '/../../assets/inception.zip')
     into file(projectDir.toString() + '/assets')
+    println "Gradle task unzip done"
 }
-unzip.dependsOn downloadFile
+// unzip.dependsOn downloadFile
 
 project.afterEvaluate {
     if (!(new File(projectDir.toString() + '/assets')).exists()) {
