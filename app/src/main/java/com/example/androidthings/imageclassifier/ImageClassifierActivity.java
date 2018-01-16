@@ -237,13 +237,15 @@ public class ImageClassifierActivity extends Activity implements ImageReader.OnI
             setReady(true);
         }
 
+
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 for (int i = 0; i < mResultViews.length; i++) {
                     if (results.size() > i) {
                         Classifier.Recognition r = results.get(i);
-                        mResultViews[i].setText(r.getTitle() + " : " + r.getConfidence().toString());
+                        String confidencePercent = String.format("%.1f", (r.getConfidence()*100));
+                        mResultViews[i].setText(r.getTitle() + " : " + confidencePercent + "%");
                     } else {
                         mResultViews[i].setText(null);
                     }

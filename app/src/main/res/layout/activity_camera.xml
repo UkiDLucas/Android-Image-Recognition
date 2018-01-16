@@ -27,7 +27,7 @@
         android:layout_marginStart="84dp"
         android:layout_marginTop="260dp"
         android:text="@string/help_message"
-        android:textColor="@android:color/holo_blue_light"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         tools:text="dog: 0.343535" />
@@ -37,7 +37,7 @@
         android:layout_width="321dp"
         android:layout_height="42dp"
         android:layout_marginTop="44dp"
-        android:textColor="@android:color/holo_blue_light"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
         app:layout_constraintStart_toStartOf="@+id/result1"
         app:layout_constraintTop_toBottomOf="@+id/result1"
         tools:text="chair: 0.23423423" />
@@ -47,7 +47,7 @@
         android:layout_width="321dp"
         android:layout_height="46dp"
         android:layout_marginTop="44dp"
-        android:textColor="@android:color/holo_blue_light"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
         app:layout_constraintStart_toStartOf="@+id/result2"
         app:layout_constraintTop_toBottomOf="@+id/result2"
         tools:text="cat: 0.21423423" />
