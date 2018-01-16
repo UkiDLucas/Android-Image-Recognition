@@ -89,8 +89,8 @@ public class ImageClassifierActivity extends Activity implements ImageReader.OnI
         mBackgroundHandler = new Handler(mBackgroundThread.getLooper());
         mBackgroundHandler.post(mInitializeOnBackground);
 
-        // Let the user touch the screen to take a photo
-        findViewById(R.id.container).setOnClickListener(new View.OnClickListener() {
+        // Click on the "Take a Photo" shutterButton
+        findViewById(R.id.shutterButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mReady.get()) {
@@ -102,6 +102,8 @@ public class ImageClassifierActivity extends Activity implements ImageReader.OnI
                 }
             }
         });
+
+
     }
 
     /**
