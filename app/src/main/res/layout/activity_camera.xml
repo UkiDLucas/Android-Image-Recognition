@@ -26,7 +26,7 @@
         android:layout_height="46dp"
         android:layout_marginStart="84dp"
         android:layout_marginTop="260dp"
-        android:text="@string/help_message"
+
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView"
@@ -54,11 +54,11 @@
 
     <Button
         android:id="@+id/shutterButton"
-        android:layout_width="176dp"
+        android:layout_width="320dp"
         android:layout_height="44dp"
-        android:layout_marginStart="144dp"
+        android:layout_marginStart="84dp"
         android:layout_marginTop="36dp"
-        android:text="Take a Photo"
+        android:text="@string/help_message"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
