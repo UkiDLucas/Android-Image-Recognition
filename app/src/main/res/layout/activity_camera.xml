@@ -24,12 +24,12 @@
         android:id="@+id/result1"
         android:layout_width="321dp"
         android:layout_height="46dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="144dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="260dp"
         android:text="@string/help_message"
         android:textColor="@android:color/holo_blue_light"
-        app:layout_constraintStart_toStartOf="@+id/results"
-        app:layout_constraintTop_toBottomOf="@+id/results"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
         tools:text="dog: 0.343535" />
 
     <TextView
@@ -52,18 +52,14 @@
         app:layout_constraintTop_toBottomOf="@+id/result2"
         tools:text="cat: 0.21423423" />
 
-    <LinearLayout
-        android:id="@+id/results"
-        android:layout_width="337dp"
-        android:layout_height="47dp"
-        android:layout_below="@id/results"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="24dp"
-        android:background="@color/control_background"
-        android:orientation="vertical"
+    <Button
+        android:id="@+id/shutterButton"
+        android:layout_width="176dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="36dp"
+        android:text="Take a Photo"
         app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView">
-
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
 </android.support.constraint.ConstraintLayout>
