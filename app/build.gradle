@@ -32,6 +32,7 @@ android {
 
 // Download model zip file into ../../assets directory
 // unzip it to demo project's own ./assets directory
+// @see https://github.com/michel-kraemer/gradle-download-task/blob/master/README.md
 import de.undercouch.gradle.tasks.download.Download
 task downloadFile(type: Download) {
     src 'https://storage.googleapis.com/download.tensorflow.org/models/inception5h.zip'
