@@ -295,7 +295,7 @@ public class ImageClassifierActivity extends Activity implements ImageReader.OnI
         // and we currently target a lower minSdkVersion
         final PackageManager pm = context.getPackageManager();
         boolean isRunningAndroidThings = pm.hasSystemFeature("android.hardware.type.embedded");
-        Log.d(TAG, "isRunningAndroidThings: " + isRunningAndroidThings);
+        Log.d(TAG, "isAndroidThingsDevice: " + isRunningAndroidThings);
         return isRunningAndroidThings;
     }
 }

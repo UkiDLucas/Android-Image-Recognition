@@ -32,7 +32,7 @@ public class TtsSpeaker {
 
     private static final String UTTERANCE_ID
             = "com.example.androidthings.imageclassifier.UTTERANCE_ID";
-    private static final float HUMOR_THRESHOLD = 0.2f;
+    private static final float HUMOR_THRESHOLD = 0.5f; // how often it jokes
     private static final Random RANDOM = new Random();
 
     private static final List<Utterance> SHUTTER_SOUNDS = new ArrayList<>();
@@ -42,9 +42,9 @@ public class TtsSpeaker {
         SHUTTER_SOUNDS.add(new ShutterUtterance("Say Cheeeeese!"));
         SHUTTER_SOUNDS.add(new ShutterUtterance("Aim well!"));
 
-        JOKES.add(new SimpleUtterance("It's a bird! It's a plane! It's... it's..."));
-        JOKES.add(new SimpleUtterance("Oops, someone left the lens cap on! Just kidding..."));
-        JOKES.add(new SimpleUtterance("Hey, that looks like me! Just kidding..."));
+        JOKES.add(new SimpleUtterance("It's a bird! ... It's a plane! It's... it's..."));
+        JOKES.add(new SimpleUtterance("Oops, someone left the lens cap on! ... Just kidding..."));
+        JOKES.add(new SimpleUtterance("Hey, that looks just like me! ... Kidding..."));
         JOKES.add(new ISeeDeadPeopleUtterance());
     }
 
