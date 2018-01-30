@@ -71,6 +71,9 @@ repositories {
     }
 }
 
+// Using precompiled so in libs
+def nativeBuildSystem = 'none'
+
 dependencies {
     implementation 'com.google.android.things.contrib:driver-button:0.3'
     implementation 'org.tensorflow:tensorflow-android:1.2.0'
@@ -78,4 +81,8 @@ dependencies {
 
     // https://developer.android.com/training/constraint-layout/index.html#add-constraintlayout-to-your-project
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    if (nativeBuildSystem == 'cmake' || nativeBuildSystem == 'none') {
+        //implementation files('libs/libandroid_tensorflow_inference_java.jar')
+    }
 }

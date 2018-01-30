@@ -48,8 +48,13 @@ public class Helper {
     public static final int IMAGE_SIZE = 224;
     private static final int IMAGE_MEAN = 117;
     private static final float IMAGE_STD = 1;
-    private static final String LABELS_FILE = "imagenet_comp_graph_label_strings.txt";
-    public static final String MODEL_FILE = "file:///android_asset/tensorflow_inception_graph.pb";
+
+    private static final String LABELS_FILE = "imagenet_inception_labels.txt";
+    public static final String MODEL_FILE = "file:///android_asset/imagenet_inception_graph.pb";
+
+    //private static final String LABELS_FILE = "flowers_labels.txt";
+    //public static final String MODEL_FILE = "file:///android_asset/flowers_graph.pb";
+
     public static final String INPUT_NAME = "input:0";
     public static final String OUTPUT_OPERATION = "output";
     public static final String OUTPUT_NAME = OUTPUT_OPERATION + ":0";

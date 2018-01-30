@@ -10,6 +10,8 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
         classpath 'de.undercouch:gradle-download-task:3.1.2'
+
+
     }
 }
 
@@ -19,6 +21,8 @@ allprojects {
         jcenter()
     }
 }
+
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir
