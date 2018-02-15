@@ -15,7 +15,9 @@
  */
 package com.example.androidthings.imageclassifier;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
@@ -29,9 +31,15 @@ import android.hardware.camera2.params.StreamConfigurationMap;
 import android.media.ImageReader;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.util.Size;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+
 import static android.content.Context.CAMERA_SERVICE;
 
 public class CameraHandler {
@@ -47,15 +55,19 @@ public class CameraHandler {
      * An {@link ImageReader} that handles still image capture.
      */
     private ImageReader mImageReader;
+
     // Lazy-loaded singleton, so only one instance of the camera is created.
     private CameraHandler() {
     }
+
     private static class InstanceHolder {
         private static CameraHandler mCamera = new CameraHandler();
     }
+
     public static CameraHandler getInstance() {
         return InstanceHolder.mCamera;
     }
+
     /**
      * Initialize the camera device
      */
@@ -70,19 +82,38 @@ public class CameraHandler {
         } catch (CameraAccessException e) {
             Log.d(TAG, "Cam access exception getting IDs", e);
         }
+
+        String id = "0";
+
         if (camIds.length < 1) {
             Log.d(TAG, "No cameras found");
             return;
         }
-        String id = camIds[0];
+
+        if (camIds.length > 1) {
+            Log.d(TAG, "Multiple Cameras found");
+            id = camIds[1]; // using second camera
+            return;
+        }
+
         Log.d(TAG, "Using camera id " + id);
         // Initialize the image processor
-        mImageReader = ImageReader.newInstance(IMAGE_WIDTH, IMAGE_HEIGHT,
-                ImageFormat.JPEG, MAX_IMAGES);
-        mImageReader.setOnImageAvailableListener(
-                imageAvailableListener, backgroundHandler);
+        mImageReader = ImageReader.newInstance(IMAGE_WIDTH, IMAGE_HEIGHT, ImageFormat.JPEG, MAX_IMAGES);
+        mImageReader.setOnImageAvailableListener(imageAvailableListener, backgroundHandler);
+
         // Open the camera resource
         try {
+
+            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
             manager.openCamera(id, mStateCallback, backgroundHandler);
         } catch (CameraAccessException cae) {
             Log.d(TAG, "Camera access exception", cae);
@@ -246,4 +277,6 @@ public class CameraHandler {
             Log.d(TAG, "Cam access exception getting characteristics.");
         }
     }
+
+
 }
