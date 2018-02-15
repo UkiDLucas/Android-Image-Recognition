@@ -82,6 +82,9 @@ dependencies {
     // https://developer.android.com/training/constraint-layout/index.html#add-constraintlayout-to-your-project
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
+    // for use of ContextCompat
+    compile 'com.android.support:support-v4:26.1.0'
+
     if (nativeBuildSystem == 'cmake' || nativeBuildSystem == 'none') {
         //implementation files('libs/libandroid_tensorflow_inference_java.jar')
     }
