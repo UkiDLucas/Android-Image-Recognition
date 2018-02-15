@@ -49,8 +49,8 @@ public class Helper {
     private static final int IMAGE_MEAN = 117;
     private static final float IMAGE_STD = 1;
 
-    private static final String LABELS_FILE = "imagenet_inception_labels.txt";
-    public static final String MODEL_FILE = "file:///android_asset/imagenet_inception_graph.pb";
+    private static final String LABELS_FILE = "inception_imagenet_labels.txt";
+    public static final String MODEL_FILE = "file:///android_asset/inception_imagenet_graph.pb";
 
     //private static final String LABELS_FILE = "flowers_labels.txt";
     //public static final String MODEL_FILE = "file:///android_asset/flowers_graph.pb";
